@@ -56,13 +56,14 @@ const updateFriendRequestAndAddFriendsToUser = function(req, res) {
         if(err) {
           console.log(err);
         }
-
+       console.log("1");
        user.friends.push(friendRequest.receiver_id);
 
         user.save(function (err, result) {
           if(err) {
             console.log(err);
           }
+          console.log("2");
         });
       });
 
@@ -71,17 +72,19 @@ const updateFriendRequestAndAddFriendsToUser = function(req, res) {
         if(err) {
           console.log(err);
         }
-
+        console.log("3");
         user.friends.push(friendRequest.sender_id);
 
         user.save(function (err, result) {
           if(err) {
             console.log(err);
           }
+          console.log("4");
         });
 
       });
       res.send(friendRequest);
+      console.log("5");
     } else {
       res.status(400).send("Response was rejected");
     }
