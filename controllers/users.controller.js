@@ -2,15 +2,6 @@ const User = require('../schemes/user.scheme');
 
 const handleError = err => console.log(err);
 
-/*const getUserList = function(req, res) {
-  User.find({}, function(err, users) {
-    if(err){
-      console.log(err);
-    }
-    res.send(users);
-  });
-};*/
-
 const getUserList = function(req, res) {
   return User.find({})
     .then(result => res.send(result))
