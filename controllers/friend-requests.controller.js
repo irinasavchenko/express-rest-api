@@ -8,7 +8,7 @@ const handleErr = err => console.log(err);
 const getFriendRequestsList = function(req, res) {
   return FriendRequest.find({})
     .then(result => res.send(result))
-    .catch(err => handleErr)
+    .catch(handleErr)
 };
 
 const getFriendRequest = function(req, res){
@@ -20,7 +20,7 @@ const getFriendRequest = function(req, res){
       }
       return res.send(result)
     })
-    .catch(err => handleErr)
+    .catch(handleErr)
 };
 
 const createFriendRequest = function(req,res){
@@ -39,7 +39,7 @@ const createFriendRequest = function(req,res){
 
   return friendRequest.save()
     .then(friendRequest => res.send(friendRequest))
-    .catch(err => handleErr)
+    .catch(handleErr)
 };
 
   const updateFriendRequestAndAddFriendsToUser = function(req, res) {
@@ -65,14 +65,14 @@ const createFriendRequest = function(req,res){
           .then(() => res.send(friendRequest));
 
       })
-      .catch(err => handleErr)
+      .catch(handleErr)
   }
 
   const deleteFriendRequests = function(req,res){
     let id = req.params.id;
     return FriendRequest.findByIdAndDelete({_id: id})
       .then(result => res.sendStatus(204))
-      .catch(err => handleErr)
+      .catch(handleErr)
   };
 
   module.exports = {

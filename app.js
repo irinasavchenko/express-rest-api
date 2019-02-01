@@ -22,9 +22,6 @@ app.get('/friend-requests/:id',friendRequestController.getFriendRequest);
 app.put('/friend-requests/:id',friendRequestController.updateFriendRequestAndAddFriendsToUser);
 app.delete('/friend-requests/:id',friendRequestController.deleteFriendRequests);
 
-const PENDING_FRIEND_REQUEST = 'pending';
-const ACCEPTED_FRIEND_REQUEST = 'accepted';
-
 
 mongoose.connect("mongodb://localhost:27017/usersdb", { useNewUrlParser: true }, function(err){  //подключаемся к бд
   if (err) {
